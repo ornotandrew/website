@@ -2,7 +2,7 @@ import Typography from 'typography'
 import theme from 'typography-theme-fairy-gates'
 
 theme.overrideThemeStyles = () => ({
-  'header a': {
+  'a': {
     backgroundImage: `none`,
   },
 })
