@@ -1,5 +1,6 @@
 ---
 title: Desktop Environments
+description: How Desktop Environments impact your productivity
 date: '2017-02-15T13:00:00.000Z'
 ---
 
@@ -15,9 +16,9 @@ These examples are trivial and can be fixed with almost no effort. The thing
 is, computer interfaces are just as important but users often settle for the
 default option, even when there are alternatives.
 
-![*Desktops can be both functional and elegant Credit to
-[/u/robowarrior_](https://reddit.com/user/robowarrior_/)*](https://cdn-images-1.medium.com/max/2048/0*iu3NNuf0zyjB8Ukn.png)
-**Desktops can be both functional and elegant Credit to [/u/robowarrior_](https://reddit.com/user/robowarrior_/)**
+![Elegant desktop](elegant.png#large "Desktops can be both functional and elegant
+Credit to [/u/robowarrior_](https://reddit.com/user/robowarrior_/)")
+
 
 Let me digress a bit, and explain what I mean by “Desktop environment”. The
 [Wikipaedia article](https://en.wikipedia.org/wiki/Desktop_environment) talks
@@ -63,8 +64,7 @@ mention some thoughts on three that stood out to me.
 Elementary OS uses an app launcher called *Slingshot*.
 
 ![*Slingshot
-launcher*](https://cdn-images-1.medium.com/max/2000/0*ZEZZwmAKipnaZQv8.png)**Slingshot
-launcher**
+launcher*](slingshot.png "Slingshot launcher")
 
 It’s simple, fast, and fits my use case exactly. If I want to open Chrome, all
 I need to do is hit SuperchrEnter. No need to involve the mouse or remember the
@@ -78,7 +78,7 @@ Ubuntu’s default desktop environment has a pleasantly minimal status bar. It
 lends itself to the style that macOS has gone with, which I think is a good
 thing.
 
-![Unity](https://cdn-images-1.medium.com/max/2994/0*8VF99CNvdPADr2BT.png)*Unity*
+![Unity](unity.png "Unity")
 
 Some people don’t like that it also acts as a menu bar (File, Edit, etc.), but
 I think that it helps with keeping everything consistent. That said, there is

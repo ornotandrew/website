@@ -1,10 +1,13 @@
 import Typography from 'typography'
-import theme from 'typography-theme-fairy-gates'
+import theme from 'typography-theme-wordpress-2016'
 
-theme.overrideThemeStyles = () => ({
-  'a': {
-    backgroundImage: `none`,
-  },
+theme.baseFontSize = '18px'
+theme.bodyWeight = 350
+
+theme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
+  'ul,ol': {
+    marginLeft: '1.75rem'
+  }
 })
 
 const typography = new Typography(theme)

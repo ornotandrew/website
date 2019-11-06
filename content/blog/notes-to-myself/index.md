@@ -1,5 +1,6 @@
 ---
 title: Notes to myself
+description: My first blog post
 date: '2017-02-15T12:00:00.000Z'
 ---
 

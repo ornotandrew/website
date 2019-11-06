@@ -54,12 +54,12 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong>, a software engineer in Cape Town, South Africa
-        <a href={`https://twitter.com/${social.twitter}`}>
+        Written by 
+        <a href={`https://twitter.com/${social.twitter}`} style={{ boxShadow: 'none' }}>
           <svg
             id="twitter_logo"
             viewBox="0 0 400 400"
-            height={rhythm(1)}
+            height={rhythm(0.85)}
             style={{ verticalAlign: 'middle' }}
           >
             <title>{author} twitter</title>
@@ -69,6 +69,7 @@ const Bio = () => {
             />
           </svg>
         </a>
+        <strong>{author}</strong>, a software engineer in Cape Town, South Africa
       </p>
     </div>
   )

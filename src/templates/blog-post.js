@@ -1,10 +1,17 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import rehypeReact from "rehype-react"
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Image from '../components/image'
 import { rhythm, scale } from '../utils/typography'
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: { img: Image },
+}).Compiler
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -38,7 +45,7 @@ class BlogPostTemplate extends React.Component {
               {post.frontmatter.date}
             </p>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          { renderAst(post.htmlAst) }
           <hr
             style={{
               marginBottom: rhythm(1),
@@ -93,7 +100,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      htmlAst
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
