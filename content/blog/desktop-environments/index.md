@@ -1,6 +1,5 @@
 ---
 title: Desktop Environments
-description: How Desktop Environments impact your productivity
 date: '2017-02-15T13:00:00.000Z'
 ---
 
@@ -16,7 +15,7 @@ stationery.  These examples are trivial and can be fixed with almost no effort.
 The thing is, computer interfaces are just as important but users often settle
 for the default option, even when there are alternatives.
 
-![Elegant desktop ~large](elegant.png "Desktops can be both functional and
+![Elegant desktop](elegant.png "Desktops can be both functional and
 elegant Credit to [/u/robowarrior_](https://reddit.com/user/robowarrior_/)")
 
 
