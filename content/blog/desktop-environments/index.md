@@ -7,17 +7,17 @@ date: '2017-02-15T13:00:00.000Z'
 If you spend 8+ hours a day working in a particular space, it’s pretty
 important that it’s comfortable and allows you to be productive. If you spend a
 lot of time driving with your seat too close to the wheel, your back will start
-hurting. If your office is filled with with crappy stationary, you’ll end up
+hurting. If your office is filled with crappy stationery, you’ll end up
 frustrated with pens containing gravity-defying ink and staplers which are only
 good for making holes in paper.
 
-This sounds pretty dumb, right? Just move the seat back. Buy better stationary.
-These examples are trivial and can be fixed with almost no effort. The thing
-is, computer interfaces are just as important but users often settle for the
-default option, even when there are alternatives.
+This sounds pretty dumb, right? Just move the seat backwards. Buy better
+stationery.  These examples are trivial and can be fixed with almost no effort.
+The thing is, computer interfaces are just as important but users often settle
+for the default option, even when there are alternatives.
 
-![Elegant desktop](elegant.png#large "Desktops can be both functional and elegant
-Credit to [/u/robowarrior_](https://reddit.com/user/robowarrior_/)")
+![Elegant desktop ~large](elegant.png "Desktops can be both functional and
+elegant Credit to [/u/robowarrior_](https://reddit.com/user/robowarrior_/)")
 
 
 Let me digress a bit, and explain what I mean by “Desktop environment”. The
@@ -63,8 +63,7 @@ mention some thoughts on three that stood out to me.
 
 Elementary OS uses an app launcher called *Slingshot*.
 
-![*Slingshot
-launcher*](slingshot.png "Slingshot launcher")
+![*Slingshot launcher*](slingshot.png "Slingshot launcher")
 
 It’s simple, fast, and fits my use case exactly. If I want to open Chrome, all
 I need to do is hit SuperchrEnter. No need to involve the mouse or remember the
@@ -94,13 +93,17 @@ An honourable mention for window management goes to i3wm. Being a tiling window
 manager, it’s kind of in a different league to everything else I’ve worked
 with, and it definitely has it’s place. Its basic philosophy guarantees an
 extremely efficient workflow, which I admire. Unfortunately, I found myself
-trying to force it to be a full desktop environment, which is was never meant
+trying to force it to be a full desktop environment, which it was never meant
 to be. This included code in my i3 config like the following:
 
-    bindsym XF86MonBrightnessUp exec "xbacklight -inc 5; killall notify-osd;
-    notify-send 'Backlight' `xbacklight`" bindsym XF86MonBrightnessDown exec
-    "xbacklight -dec 5; killall notify-osd; notify-send 'Backlight'
-    `xbacklight`"
+```bash
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5; \
+    killall notify-osd; \
+    notify-send 'Backlight' `xbacklight`"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5; \
+    killall notify-osd; \
+    notify-send 'Backlight' `xbacklight`"
+```
 
 This attempts to add brightness controls via the function keys on my laptop,
 and give feedback via a notification pop-up. What I learned:
@@ -124,8 +127,10 @@ a fresh install. First, I set up a combination of the
 [Paper](https://snwh.org/paper) icon set. Then, I disable ‘scopes’ that I don’t
 care about like so:
 
-    dconf write /com/canonical/unity/dash/scopes "['home.scope',
-    'applications.scope', 'files.scope']"
+```bash
+dconf write /com/canonical/unity/dash/scopes \
+    "['home.scope', 'applications.scope', 'files.scope']"
+```
 
 This reduces clutter in the app launcher and allows me to use key combinations
 like Super+c to open Chrome (instead of the ‘Photos’ scope).

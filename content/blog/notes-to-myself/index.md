@@ -15,15 +15,15 @@ certainly unusual for me.
 
 ## Then why?
 
-Recently, I’ve found myself thinking about something specific, and wanting to
+Recently, I’ve found myself thinking about something specific and wanting to
 record it somewhere. Not for other people to read, but rather to help get my
 thoughts in order and maintain an archive, in case I need to come back to that
 train of thought in the future. At first I looked into note-taking tools like
 Evernote, but ended up leaning towards keeping my own set of markdown files.
-That became a Jekyll blog hosted with Github ages, which in turn led me here. I
-see this as an opportunity for me to organize my thoughts, and take stock of
-lessons I’ve learned in an open way. If people read what I post — great. If
-they don’t — at least I will.
+That became a Jekyll blog hosted with Github pages, which in turn led me here.
+I see this as an opportunity for me to organize my thoughts, and openly take
+stock of lessons I’ve learned. If people read what I post — great. If they
+don’t — at least I will.
 
 I don’t have a particular plan for what I’ll be writing, but it will likely
 involve

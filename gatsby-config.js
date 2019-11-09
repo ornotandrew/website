@@ -29,6 +29,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
+              linkImagesToOriginal: false, // use gatsby-remark-images-medium-zoom instead
               maxWidth: 590,
               showCaptions: ['title'],
               // markdownCaptions: true // TODO: add when https://github.com/gatsbyjs/gatsby/issues/16703 is fixed
@@ -40,11 +41,16 @@ module.exports = {
               wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              showLineNumbers: true
+            }
+          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           {
-            resolve: `gatsby-remark-images-medium-zoom`,
+            resolve: 'gatsby-remark-images-medium-zoom',
             options: {}
           },
         ],
