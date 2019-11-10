@@ -3,7 +3,7 @@ module.exports = {
     title: 'Not A Blog',
     description: 'Andrew van Rooyen blog',
     author: 'Andrew van Rooyen',
-    siteUrl: 'https://wraithy.github.io',
+    siteUrl: 'https://andrewvr.dev',
     social: {
       twitter: 'ornotandrew',
     },

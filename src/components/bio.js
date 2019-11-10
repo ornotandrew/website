@@ -59,6 +59,7 @@ const Bio = () => {
           href={`https://twitter.com/${social.twitter}`}
           style={{ boxShadow: 'none', marginRight: '-0.1em', marginLeft: '-0.2em' }}
           target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             id="twitter_logo"
