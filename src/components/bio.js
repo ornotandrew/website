@@ -37,7 +37,7 @@ const Bio = () => {
     <div
       style={{
         display: `flex`,
-        marginBottom: rhythm(2.5),
+        marginBottom: rhythm(1.5),
       }}
     >
       <Image
@@ -54,8 +54,12 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by 
-        <a href={`https://twitter.com/${social.twitter}`} style={{ boxShadow: 'none' }}>
+        Written by {' '}
+        <a
+          href={`https://twitter.com/${social.twitter}`}
+          style={{ boxShadow: 'none', marginRight: '-0.1em', marginLeft: '-0.2em' }}
+          target="_blank"
+        >
           <svg
             id="twitter_logo"
             viewBox="0 0 400 400"
@@ -69,7 +73,8 @@ const Bio = () => {
             />
           </svg>
         </a>
-        <strong>{author}</strong>, a software engineer in Cape Town, South Africa
+        <strong>{author}</strong>
+        , a software engineer in Cape Town, South Africa
       </p>
     </div>
   )
