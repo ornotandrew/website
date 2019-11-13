@@ -69,8 +69,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Starter Blog',
-        short_name: 'GatsbyJS',
+        name: 'Andrew van Rooyen - Not A Blog',
+        short_name: 'Not A Blog',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#181818',
