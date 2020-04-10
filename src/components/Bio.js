@@ -1,12 +1,27 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 import Image from 'gatsby-image'
-import ImageLink from './imageLink'
+import ImageLink from './ImageLink'
 import twitter from '../svg/twitter.svg'
-
 import { rhythm } from '../utils/typography'
 
-const Bio = () => {
+const Wrapper = styled.div`
+  display: flex;
+  margin-bottom: ${rhythm(1.5)};
+`
+
+const Avatar = styled(Image)`
+  margin-right: ${rhythm(1 / 2)};
+  margin-bottom: 0;
+  min-width: 50px;
+  border-radius: 100%;
+  img {
+    border-radius: 50%;
+  }
+` // TODO: make sure the image replacement is correct here with the 50% inner border-radius
+
+export default function () {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
@@ -29,24 +44,10 @@ const Bio = () => {
 
   const { author, social } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(1.5),
-      }}
-    >
-      <Image
+    <Wrapper>
+      <Avatar
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
       />
       <p>
         Written by {' '}
@@ -54,19 +55,10 @@ const Bio = () => {
           alt={`${author} twitter`}
           href={`https://twitter.com/${social.twitter}`}
           src={twitter}
-          style={{
-            boxShadow: 'none',
-            marginRight: '-0.1em',
-            marginLeft: '-0.1em',
-            lineHeight: rhythm(),
-            marginTop: '0.2em'
-          }}
         />
         <strong>{author}</strong>
         , a software engineer in Cape Town, South Africa
       </p>
-    </div>
+    </Wrapper>
   )
 }
-
-export default Bio

@@ -2,7 +2,8 @@ import Typography from 'typography'
 import theme from 'typography-theme-wordpress-2016'
 
 theme.baseFontSize = '18px'
-theme.bodyWeight = 350
+theme.headerWeight = 700
+theme.bodyWeight = 300
 
 theme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
   'ul,ol': {
