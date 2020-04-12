@@ -4,6 +4,8 @@ subtitle: A retrospective on how I ignored the rules and regretted it
 date: '2019-09-02T18:51:31.000Z'
 ---
 
+![Banner](banner.png)
+
 In late 2016, my team and I started building a brand new platform. Having a
 blank slate like this is a developer’s dream — no legacy code, no backward
 compatibility to worry about, and best of all, we could choose The Right

@@ -3,6 +3,8 @@ title: A rant about alt+tab in elementary OS
 date: '2017-06-29T12:00:00.000Z'
 ---
 
+![Banner](banner.png)
+
 **Disclaimer:** I have been using elementary OS for a while now. It’s mostly
 great, but the alt+tab functionality gets under my skin. My level of
 frustration has been enough to send me Googling for ways to change the default
