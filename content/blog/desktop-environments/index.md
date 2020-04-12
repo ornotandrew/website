@@ -20,7 +20,7 @@ elegant Credit to [/u/robowarrior_](https://reddit.com/user/robowarrior_/)")
 
 
 Let me digress a bit, and explain what I mean by “Desktop environment”. The
-[Wikipaedia article](https://en.wikipedia.org/wiki/Desktop_environment) talks
+[Wikipedia article](https://en.wikipedia.org/wiki/Desktop_environment) talks
 about the icon, window and toolbar metaphors (although you might not want to
 read too closely or you’ll find
 [this](https://en.wikipedia.org/wiki/WIMP_(computing)) page).
