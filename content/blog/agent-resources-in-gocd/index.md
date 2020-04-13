@@ -42,7 +42,7 @@ The server will only give a job to an agent if that agent also has those tags.
 Here’s an animation to demonstrate.
 
 ![Delegation animation](delegation.gif "A master/worker CI system with two
-different types of workers")
+        different types of workers")
 
 The white block in the lower right is the server node. The blue and purple
 blocks are agents with two different tags.

@@ -31,7 +31,7 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               linkImagesToOriginal: false, // use gatsby-remark-images-medium-zoom instead
-              maxWidth: 590,
+              maxWidth: 1000,
               showCaptions: ['title'],
               // markdownCaptions: true // TODO: add when https://github.com/gatsbyjs/gatsby/issues/16703 is fixed
             },
