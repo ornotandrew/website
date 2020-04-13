@@ -51,7 +51,7 @@ class BlogPostTemplate extends React.Component {
             <Title>{frontmatter.title}</Title>
             <Date>{frontmatter.date}</Date>
           </header>
-          {frontmatter.banner && <img src={frontmatter.banner.publicURL}/>}
+          {frontmatter.banner && <img src={frontmatter.banner.publicURL} alt="banner"/>}
           <section dangerouslySetInnerHTML={{ __html: html }} />
           <Footer>
             <hr />
