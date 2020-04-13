@@ -36,22 +36,23 @@ const BottomNav = styled.nav`
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
+    const { excerpt, frontmatter, html } = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={post.frontmatter.title}
-          description={post.excerpt}
+          title={frontmatter.title}
+          description={excerpt}
         />
         <article>
           <header>
-            <Title>{post.frontmatter.title}</Title>
-            <Date>{post.frontmatter.date}</Date>
+            <Title>{frontmatter.title}</Title>
+            <Date>{frontmatter.date}</Date>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          {frontmatter.banner && <img src={frontmatter.banner.publicURL}/>}
+          <section dangerouslySetInnerHTML={{ __html: html }} />
           <Footer>
             <hr />
             <Bio />
@@ -97,6 +98,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        banner { publicURL }
         date(formatString: "MMMM DD, YYYY")
       }
     }

@@ -1,9 +1,8 @@
 ---
 title: A rant about alt+tab in elementary OS
+banner: banner.png
 date: '2017-06-29T12:00:00.000Z'
 ---
-
-![Banner](banner.png)
 
 **Disclaimer:** I have been using elementary OS for a while now. It’s mostly
 great, but the alt+tab functionality gets under my skin. My level of
