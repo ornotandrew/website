@@ -44,6 +44,14 @@ const PostWrapper = styled.div`
   article>section>ul, article>section>ol {
     padding-left: ${rhythm(3 / 4 + 1)};
   }
+
+  // Work around the hack used to have a responsive iframe with constant aspect
+  // ratio. This really sucks - ideally, we could be able to wrap this element
+  // in another div, but short of writing a plugin we don't have that kind of
+  // control over the generated HTML.
+  section>div.gatsby-resp-iframe-wrapper {
+    padding-bottom: min(56.25%, ${rhythm(24*0.5625)}) !important
+  }
 `
 
 export default function ({ location, title, children }) {

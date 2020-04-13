@@ -28,9 +28,9 @@ that from a UX standpoint, it breaks continuity in more than one big way.
 For reference, below is a short video of me switching through a typical set of
 open windows.
 
-<center><iframe width="560" height="315"
+<iframe width="560" height="315"
 src="https://www.youtube.com/embed/ta7itUYlLvk" frameborder="0"
-allowfullscreen></iframe></center>
+allowfullscreen></iframe>
 
 ## The dock in general
 
