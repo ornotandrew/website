@@ -15,8 +15,8 @@ stationery.  These examples are trivial and can be fixed with almost no effort.
 The thing is, computer interfaces are just as important but users often settle
 for the default option, even when there are alternatives.
 
-![Elegant desktop](elegant.png "Desktops can be both functional and
-elegant Credit to [/u/robowarrior_](https://reddit.com/user/robowarrior_/)")
+![Elegant desktop](./elegant.png "_Desktops can be both functional and
+elegant Credit to [/u/robowarrior_](https://reddit.com/user/robowarrior_/)_")
 
 
 Let me digress a bit, and explain what I mean by “Desktop environment”. The
@@ -62,7 +62,7 @@ mention some thoughts on three that stood out to me.
 
 Elementary OS uses an app launcher called *Slingshot*.
 
-![*Slingshot launcher*](slingshot.png "Slingshot launcher")
+![*Slingshot launcher*](./slingshot.png "_Slingshot launcher_")
 
 It’s simple, fast, and fits my use case exactly. If I want to open Chrome, all
 I need to do is hit SuperchrEnter. No need to involve the mouse or remember the
@@ -76,7 +76,7 @@ Ubuntu’s default desktop environment has a pleasantly minimal status bar. It
 lends itself to the style that macOS has gone with, which I think is a good
 thing.
 
-![Unity](unity.png "Unity")
+![Unity](./unity.png "_Unity_")
 
 Some people don’t like that it also acts as a menu bar (File, Edit, etc.), but
 I think that it helps with keeping everything consistent. That said, there is

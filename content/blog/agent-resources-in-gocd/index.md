@@ -9,8 +9,8 @@ the past 8 months or so. It isn’t as well-known as Jenkins or Travis, but some
 of its core principles are fundamentally different to (and in my opinion,
 better than) any other CI tool I’m aware of.
 
-![CI tool comparison](interest-graph.png "Google searches for popular CI
-tools")
+![CI tool comparison](./interest-graph.png "_Google searches for popular CI
+tools_")
 
 
 The graph above paints a pretty accurate picture of this space. A few years
@@ -41,8 +41,8 @@ This approach isn’t unique to GoCD, but the tool does go a bit further with
 The server will only give a job to an agent if that agent also has those tags.
 Here’s an animation to demonstrate.
 
-![Delegation animation](delegation.gif "A master/worker CI system with two
-        different types of workers")
+![Delegation animation](./delegation.gif "_A master/worker CI system with two
+different types of workers_")
 
 The white block in the lower right is the server node. The blue and purple
 blocks are agents with two different tags.
@@ -85,8 +85,8 @@ types build off.
 
 Here’s a diagram of the agents that I ended up with.
 
-![Separation of concern](heirarchy.png "Separation of concern for Docker-based
-worker agents")
+![Separation of concern](./heirarchy.png "_Separation of concern for Docker-based
+worker agents_")
 
 ## P.S.
 

@@ -1,0 +1,56 @@
+/* Extra padding to indent lists */
+article.blog-post > section > ul,
+article.blog-post > section > ol {
+  padding-left: 2rem;
+}
+
+/* Center image captions */
+figure > figcaption.gatsby-resp-image-figcaption {
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+/* Video embed: Work around the hack used to have a responsive iframe with
+ * constant aspect ratio. This really sucks - ideally, we could be able to wrap
+ * this element in another div, but short of writing a plugin we don't have
+ * that kind of control over the generated HTML. */
+div.gatsby-resp-iframe-wrapper {
+  padding-bottom: min(56.25%, calc(var(--maxWidth-wrapper) * 0.5625)) !important;
+}
+
+/* Within a post, we want to give different padding and margins to different
+ * elements. This allows a medium-like column layout where images can be wider
+ * than the text. */
+
+/* Left/right padding is done on each element individually (below)
+ * =============================================================== */
+.global-wrapper {
+  max-width: 100%; /* reset the max width set by the original css */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Images */
+.blog-post > section > figure,
+.blog-post > section > img {
+  max-width: 1000px;
+}
+
+.blog-post > section > p > img {
+  width: 100%;
+}
+
+/* Everything else */
+.global-header,
+.blog-post > header,
+.blog-post > section > *,
+.blog-post > section > figure > figcaption,
+footer,
+.bio,
+main ol {
+  padding-left: var(--spacing-5);
+  padding-right: var(--spacing-5);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--maxWidth-wrapper);
+}

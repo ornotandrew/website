@@ -1,39 +1,23 @@
-import React from 'react'
+/**
+ * Bio component that queries for data
+ * with Gatsby's useStaticQuery component
+ *
+ * See: https://www.gatsbyjs.com/docs/use-static-query/
+ */
+
+import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import Image from 'gatsby-image'
-import ImageLink from './ImageLink'
-import twitter from '../svg/twitter.svg'
-import { rhythm } from '../utils/typography'
+import { StaticImage } from 'gatsby-plugin-image'
 
-const Wrapper = styled.div`
-  display: flex;
-  margin-bottom: ${rhythm(1.5)};
-`
-
-const Avatar = styled(Image)`
-  margin-right: ${rhythm(1 / 2)};
-  margin-bottom: 0;
-  min-width: 50px;
-  border-radius: 100%;
-  img {
-    border-radius: 50%;
-  }
-` // TODO: make sure the image replacement is correct here with the 50% inner border-radius
-
-export default function () {
+const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
       site {
         siteMetadata {
-          author
+          author {
+            name
+            summary
+          }
           social {
             twitter
           }
@@ -42,23 +26,32 @@ export default function () {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  // Set these values by editing "siteMetadata" in gatsby-config.js
+  const author = data.site.siteMetadata?.author
+  const social = data.site.siteMetadata?.social
+
   return (
-    <Wrapper>
-      <Avatar
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
+    <div className="bio">
+      <StaticImage
+        className="bio-avatar"
+        layout="fixed"
+        formats={['auto', 'webp', 'avif']}
+        src="../images/profile-pic.jpg"
+        width={50}
+        height={50}
+        quality={95}
+        alt="Profile picture"
       />
-      <p>
-        Written by {' '}
-        <ImageLink
-          alt={`${author} twitter`}
-          href={`https://twitter.com/${social.twitter}`}
-          src={twitter}
-        />
-        <strong>{author}</strong>
-        , a software engineer in Cape Town, South Africa
-      </p>
-    </Wrapper>
+      {author?.name && (
+        <p>
+          Written by <strong>{author.name}</strong> {author?.summary || null}{' '}
+          <a href={`https://twitter.com/${social?.twitter || ''}`}>
+            You should follow them on Twitter.
+          </a>
+        </p>
+      )}
+    </div>
   )
 }
+
+export default Bio

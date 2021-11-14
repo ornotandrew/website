@@ -31,7 +31,7 @@ biggest pieces of advice I regret not taking.
 inevitably, your system’s architecture will in some way resemble the
 organisational structure of your company.
 
-![Conway’s law](conway.png)
+![Conway’s law](./conway.png)
 
 As our platform has evolved, we’ve written and operated between 30 and 40
 microservices, depending on how you count. Not all still exist, some have been
@@ -52,7 +52,7 @@ independently](https://youtu.be/PFQnNFe27kU?t=1352) principle.
 
 ## Ignored advice #2: You aren’t Google
 
-![You vs Google](notgoogle_1.png)
+![You vs Google](./notgoogle_1.png)
 
 One of the lesser benefits of microservices is that they can scale
 independently. In our initial design, we had already separated components which
@@ -80,7 +80,7 @@ with a simpler architecture, we could have:
 
 ## Ignored advice #3: You still aren’t Google
 
-![You vs Google](notgoogle_2.png)
+![You vs Google](./notgoogle_2.png)
 
 Another benefit of microservices is the freedom to choose the best tool for the
 job. We were experimenting with languages, and were running services written in
@@ -110,8 +110,8 @@ If we had sat down and looked into the pros and cons, we would probably have
 found that it would only start being worth it as we grew into multiple backend
 teams, using different software to solve different problems.
 
-![The journey to net-positive value](value_graph.png "The journey to
-net-positive value")
+![The journey to net-positive value](./value_graph.png "_The journey to
+net-positive value_")
 
 ## The punishment
 

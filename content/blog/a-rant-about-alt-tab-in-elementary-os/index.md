@@ -58,7 +58,7 @@ through all apps instead of the most recent two).
 I like animations which are applied tastefully and don’t get in the way. But
 let’s look at what the alt-tab switcher is supposed to do…
 
-![Window overview via super+a](super-a.png "Window overview via super+a")
+![Window overview via super+a](./super-a.png "_Window overview via super+a_")
 
 In my opinion, alt+tab should be a quicker version of the window
 overview/expose/super+a. I should be able to get a quick, general overview of
@@ -74,7 +74,7 @@ makes it look like the apps are moving (coming and going from the centre of the
 screen) as you cycle. I don’t want to have to do extra work by trying to
 mentally block out the animation to keep my mental model consistent.
 
-![Minimize on MacOS](macos-minimize.jpg)
+![Minimize on MacOS](./macos-minimize.jpg)
 
 I know it’s for a different operation, but a good example of how to to this
 properly is the minimize/maximize animation in the macOS dock.
