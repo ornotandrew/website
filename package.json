@@ -37,6 +37,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "gh-pages": "^3.2.3",
     "prettier": "^2.4.1",
     "stylelint": "^14.0.1",
     "stylelint-config-standard": "^23.0.0"
@@ -52,6 +53,7 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
+    "deploy": "gatsby build && gh-pages -d public -b master -r git@github.com:wraithy/wraithy.github.io.git",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
