@@ -42,11 +42,13 @@ div.gatsby-resp-iframe-wrapper {
 
 /* Everything else */
 .global-header,
+.global-header > *,
 .blog-post > header,
 .blog-post > section > *,
 .blog-post > section > figure > figcaption,
 footer,
 .bio,
+.global-wrapper > main,
 main ol {
   padding-left: var(--spacing-5);
   padding-right: var(--spacing-5);
