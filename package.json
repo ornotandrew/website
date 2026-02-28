@@ -1,68 +1,14 @@
 {
-  "name": "gatsby-starter-blog",
-  "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "engines": {
-    "node": "18.x"
-  },
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "name": "shaggy-spectrum",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "gatsby": "^4.1.3",
-    "gatsby-plugin-feed": "^4.1.1",
-    "gatsby-plugin-gatsby-cloud": "^4.1.1",
-    "gatsby-plugin-google-analytics": "^4.1.0",
-    "gatsby-plugin-image": "^2.1.1",
-    "gatsby-plugin-manifest": "^4.1.2",
-    "gatsby-plugin-offline": "^5.1.2",
-    "gatsby-plugin-react-helmet": "^5.1.0",
-    "gatsby-plugin-sharp": "^4.1.2",
-    "gatsby-remark-copy-linked-files": "^5.1.0",
-    "gatsby-remark-images": "^6.1.2",
-    "gatsby-remark-images-medium-zoom": "^1.7.0",
-    "gatsby-remark-prismjs": "^6.1.0",
-    "gatsby-remark-responsive-iframe": "^5.1.0",
-    "gatsby-remark-smartypants": "^5.1.0",
-    "gatsby-source-filesystem": "^4.1.1",
-    "gatsby-transformer-remark": "^5.1.2",
-    "gatsby-transformer-sharp": "^4.1.0",
-    "prismjs": "^1.25.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
-  },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "gh-pages": "^3.2.3",
-    "prettier": "^2.4.1",
-    "stylelint": "^14.0.1",
-    "stylelint-config-standard": "^23.0.0"
-  },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
-  "scripts": {
-    "deploy": "gatsby build && gh-pages -d public -b master -r git@github.com:wraithy/wraithy.github.io.git",
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "astro": "^5.17.1"
   }
 }
