@@ -3,7 +3,7 @@
   "private": true,
   "description": "A starter for a blog powered by Gatsby and Markdown",
   "engines": {
-    "node": ">=18.0.0"
+    "node": "18.x"
   },
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
