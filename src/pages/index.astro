@@ -5,46 +5,292 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Andrew van Rooyen — Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root { --bg: #0a0a12; --text: #e8e8ed; --muted: #6b6b7a; --accent: #00ff88; }
-    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--text); margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-    main { padding: 2rem; max-width: 600px; width: 100%; }
-    .kicker { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.75rem; }
+    :root { 
+      --bg: #08080c; 
+      --text: #e8e8ed;
+      --muted: #6b6b7a;
+      --accent: #00ff88;
+      --grid-color: rgba(90, 90, 110, 0.3);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Background layers */
+    .bg-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* Engineering grid - subtle, technical */
+    .grid-bg {
+      background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Radial gradient - depth, not decoration */
+    .gradient-bg {
+      background: radial-gradient(
+        ellipse 100% 80% at 50% 50%,
+        rgba(12, 15, 25, 0.5) 0%,
+        rgba(8, 8, 12, 0.2) 40%,
+        transparent 70%
+      );
+    }
+
+    /* Subtle vignette */
+    .vignette {
+      background: radial-gradient(
+        ellipse 100% 100% at 50% 50%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.5) 100%
+      );
+    }
+
+    /* Node graph container */
+    .bg-nodes {
+      position: fixed;
+      top: 0;
+      right: -5%;
+      width: 75vw;
+      height: 100vh;
+      z-index: 1;
+      opacity: 0.65;
+    }
+
+    .node-graph {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Particles */
+    .particle {
+      offset-rotate: 0deg;
+      animation: flow linear infinite;
+    }
+
+    @keyframes flow {
+      0% { offset-distance: 0%; opacity: 0; }
+      8% { opacity: 1; }
+      92% { opacity: 1; }
+      100% { offset-distance: 100%; opacity: 0; }
+    }
+
+    /* Main content */
+    main {
+      position: relative;
+      z-index: 10;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .kicker { 
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.2em; 
+      color: var(--muted); 
+      margin-bottom: 0.75rem;
+    }
+
     .pulse { color: var(--accent); animation: p 2s infinite; }
     @keyframes p { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-    h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 0 0 0.75rem; line-height: 1.05; letter-spacing: -0.03em; background: linear-gradient(135deg, #fff, #c8f0ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .last-name { font-size: 0.75em; }
-    .tagline { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 0.75rem; }
-    .hero-links { display: grid; grid-template-columns: auto auto; gap: 0.5rem 2rem; margin-top: 1.5rem; }
-    .social-links, .nav-links { display: flex; flex-direction: column; gap: 0.25rem; }
-    a { color: var(--muted); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s; }
+
+    h1 { 
+      font-size: clamp(2.5rem, 8vw, 4.5rem); 
+      margin: 0 0 0.75rem; 
+      line-height: 1.05; 
+      letter-spacing: -0.03em; 
+      background: linear-gradient(135deg, #fff 0%, #c8f0ff 60%, #a8d4e6 100%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .last-name { 
+      font-size: 0.75em;
+      background: linear-gradient(135deg, #e8fdf4 0%, #c8fce8 100%); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .tagline { 
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.15em; 
+      color: var(--muted); 
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-links { 
+      display: grid; 
+      grid-template-columns: auto auto; 
+      gap: 0.5rem 3rem; 
+      margin-top: 2rem; 
+    }
+
+    .social-links, .nav-links { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 0.35rem; 
+    }
+
+    a { 
+      color: var(--muted); 
+      text-decoration: none; 
+      font-size: 0.75rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.12em;
+      transition: color 0.2s;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
     a:hover { color: var(--text); }
-    footer { padding: 1rem 0; }
-    footer span { font-size: 0.75rem; color: var(--muted); opacity: 0.5; }
-    .bg-nodes { position: fixed; top: 0; right: -10%; width: 80vw; height: 100vh; opacity: 0.6; z-index: 0; }
-    .particle { offset-rotate: 0deg; animation: flow linear infinite; }
-    .particle-1 { offset-path: path('M400 320 L 800 480'); animation-duration: 4s; }
-    @keyframes flow { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+
+    footer { 
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(100, 100, 120, 0.15);
+    }
+
+    footer span { 
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem; 
+      color: var(--muted); 
+      opacity: 0.4; 
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 768px) {
+      .bg-nodes { width: 100vw; right: -20%; opacity: 0.4; }
+    }
   </style>
 </head>
 <body>
+  <!-- Background layers -->
+  <div class="bg-layer grid-bg"></div>
+  <div class="bg-layer gradient-bg"></div>
+  <div class="bg-layer vignette"></div>
+
+  <!-- Node graph -->
   <div class="bg-nodes">
-    <svg viewBox="0 0 1200 800" fill="none">
-      <line x1="400" y1="320" x2="800" y2="480" stroke="#3a3a4a" stroke-width="2" opacity="0.7"/>
-      <line x1="400" y1="320" x2="280" y2="180" stroke="#3a3a4a" stroke-width="1" opacity="0.7"/>
-      <line x1="400" y1="320" x2="350" y2="550" stroke="#3a3a4a" stroke-width="1" opacity="0.7"/>
-      <line x1="800" y1="480" x2="920" y2="320" stroke="#3a3a4a" stroke-width="1" opacity="0.7"/>
-      <line x1="800" y1="480" x2="850" y2="680" stroke="#3a3a4a" stroke-width="1" opacity="0.7"/>
-      <circle cx="400" cy="320" r="16" fill="#3a3a4a"/>
-      <circle cx="800" cy="480" r="16" fill="#3a3a4a"/>
-      <circle cx="280" cy="180" r="10" fill="#3a3a4a"/>
-      <circle cx="350" cy="550" r="10" fill="#3a3a4a"/>
-      <circle cx="920" cy="320" r="10" fill="#3a3a4a"/>
-      <circle cx="850" cy="680" r="10" fill="#3a3a4a"/>
-      <circle r="8" fill="#00ff88" class="particle particle-1"/>
+    <svg class="node-graph" viewBox="0 0 1200 800" fill="none">
+      <defs>
+        <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- === SINGLE BRIDGE BETWEEN PRIMARY NODES === -->
+      <path d="M 400 360 L 800 440" stroke="#2a2a3a" stroke-width="2" opacity="0.9"/>
+
+      <!-- === LEFT SUBGRAPH (gateway: primary node 1 at 400,360) === -->
+      <!-- Primary to secondary nodes -->
+      <line x1="400" y1="360" x2="260" y2="200" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+      <line x1="400" y1="360" x2="180" y2="340" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+      <line x1="400" y1="360" x2="320" y2="520" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+      <line x1="400" y1="360" x2="500" y2="280" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+      <line x1="400" y1="360" x2="280" y2="440" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+
+      <!-- Left cluster interconnections -->
+      <line x1="260" y1="200" x2="180" y2="340" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+      <line x1="260" y1="200" x2="280" y2="440" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+      <line x1="180" y1="340" x2="280" y2="440" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+      <line x1="320" y1="520" x2="280" y2="440" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+      <line x1="320" y1="520" x2="500" y2="280" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+
+      <!-- Left secondary nodes -->
+      <circle cx="260" cy="200" r="8" fill="#2a2a3a"/>
+      <circle cx="180" cy="340" r="7" fill="#2a2a3a"/>
+      <circle cx="320" cy="520" r="8" fill="#2a2a3a"/>
+      <circle cx="500" cy="280" r="6" fill="#2a2a3a"/>
+      <circle cx="280" cy="440" r="7" fill="#2a2a3a"/>
+      <circle cx="380" cy="180" r="5" fill="#252535"/>
+      <circle cx="140" cy="420" r="5" fill="#252535"/>
+
+      <!-- Left cluster connections to outer nodes -->
+      <line x1="260" y1="200" x2="380" y2="180" stroke="#1a1a25" stroke-width="0.4" opacity="0.4"/>
+      <line x1="180" y1="340" x2="140" y2="420" stroke="#1a1a25" stroke-width="0.4" opacity="0.4"/>
+
+      <!-- === RIGHT SUBGRAPH (gateway: primary node 2 at 800,440) === -->
+      <!-- Primary to secondary nodes -->
+      <line x1="800" y1="440" x2="940" y2="280" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+      <line x1="800" y1="440" x2="1020" y2="360" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+      <line x1="800" y1="440" x2="880" y2="600" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+      <line x1="800" y1="440" x2="700" y2="320" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+      <line x1="800" y1="440" x2="920" y2="520" stroke="#252535" stroke-width="1.2" opacity="0.7"/>
+
+      <!-- Right cluster interconnections -->
+      <line x1="940" y1="280" x2="1020" y2="360" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+      <line x1="940" y1="280" x2="920" y2="520" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+      <line x1="1020" y1="360" x2="920" y2="520" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+      <line x1="880" y1="600" x2="920" y2="520" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+      <line x1="880" y1="600" x2="700" y2="320" stroke="#1a1a25" stroke-width="0.5" opacity="0.5"/>
+
+      <!-- Right secondary nodes -->
+      <circle cx="940" cy="280" r="8" fill="#2a2a3a"/>
+      <circle cx="1020" cy="360" r="7" fill="#2a2a3a"/>
+      <circle cx="880" cy="600" r="8" fill="#2a2a3a"/>
+      <circle cx="700" cy="320" r="6" fill="#2a2a3a"/>
+      <circle cx="920" cy="520" r="7" fill="#2a2a3a"/>
+      <circle cx="820" cy="200" r="5" fill="#252535"/>
+      <circle cx="1060" cy="620" r="5" fill="#252535"/>
+
+      <!-- Right cluster connections to outer nodes -->
+      <line x1="940" y1="280" x2="820" y2="200" stroke="#1a1a25" stroke-width="0.4" opacity="0.4"/>
+      <line x1="880" y1="600" x2="1060" y2="620" stroke="#1a1a25" stroke-width="0.4" opacity="0.4"/>
+
+      <!-- === PRIMARY NODES (gateways) === -->
+      <circle cx="400" cy="360" r="14" fill="#3a3a4a" filter="url(#glow)"/>
+      <circle cx="800" cy="440" r="14" fill="#3a3a4a" filter="url(#glow)"/>
+
+      <!-- === MOVING PARTICLES === -->
+      <!-- Bridge particle (between hubs) -->
+      <circle r="5" fill="#00ff88" filter="url(#glow)" class="particle" style="offset-path: path('M 400 360 L 800 440'); animation-duration: 4s; animation-delay: 0s;"/>
+
+      <!-- Left subgraph particles -->
+      <circle r="4" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 400 360 L 260 200 L 180 340 L 400 360'); animation-duration: 5s; animation-delay: 0.5s;"/>
+      <circle r="3" fill="#a855f7" filter="url(#glow)" class="particle" style="offset-path: path('M 260 200 L 380 180 L 260 200'); animation-duration: 3s; animation-delay: 1s;"/>
+      <circle r="4" fill="#00ff88" filter="url(#glow)" class="particle" style="offset-path: path('M 400 360 L 320 520 L 280 440 L 400 360'); animation-duration: 6s; animation-delay: 1.5s;"/>
+      <circle r="3" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 180 340 L 140 420 L 180 340'); animation-duration: 4s; animation-delay: 2s;"/>
+
+      <!-- Right subgraph particles -->
+      <circle r="4" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 800 440 L 940 280 L 1020 360 L 800 440'); animation-duration: 5s; animation-delay: 0.3s;"/>
+      <circle r="3" fill="#a855f7" filter="url(#glow)" class="particle" style="offset-path: path('M 940 280 L 820 200 L 940 280'); animation-duration: 3s; animation-delay: 0.8s;"/>
+      <circle r="4" fill="#00ff88" filter="url(#glow)" class="particle" style="offset-path: path('M 800 440 L 880 600 L 920 520 L 800 440'); animation-duration: 6s; animation-delay: 1.2s;"/>
+      <circle r="3" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 880 600 L 1060 620 L 880 600'); animation-duration: 4s; animation-delay: 1.8s;"/>
+
+      <!-- Cross-bridge particles (rare, special) -->
+      <circle r="3" fill="#a855f7" filter="url(#glow)" class="particle" style="offset-path: path('M 180 340 L 400 360 L 800 440 L 1020 360'); animation-duration: 10s; animation-delay: 3s;"/>
     </svg>
   </div>
+
   <main>
     <div class="kicker"><span class="pulse">●</span> Cape Town, South Africa</div>
     <h1>Andrew<br/><span class="last-name">van Rooyen</span></h1>
