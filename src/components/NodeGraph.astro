@@ -1,0 +1,132 @@
+---
+// NodeGraph.astro - Animated payment network visualization
+---
+
+<style>
+  .bg-nodes {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 0.4;
+  }
+
+  .node-graph {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Particles */
+  .particle {
+    offset-rotate: 0deg;
+    animation: flow linear infinite;
+  }
+
+  @keyframes flow {
+    0% { offset-distance: 0%; transform: scale(0); }
+    10% { transform: scale(1); }
+    95% { transform: scale(1); }
+    100% { offset-distance: 100%; transform: scale(0); }
+  }
+
+  @media (max-width: 768px) {
+    .bg-nodes { 
+      width: 100vh; 
+      height: 100vw;
+      left: 50%; 
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%) rotate(90deg); 
+    }
+  }
+</style>
+
+<div class="bg-nodes">
+	<svg class="node-graph" viewBox="0 0 1200 800" fill="none">
+		<defs>
+			<filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+				<feGaussianBlur stdDeviation="3" result="blur"/>
+				<feMerge>
+					<feMergeNode in="blur"/>
+					<feMergeNode in="SourceGraphic"/>
+				</feMerge>
+			</filter>
+		</defs>
+
+		<!-- === ALL LINES (bottom layer) === -->
+		<!-- Bridge between primary nodes -->
+		<path d="M 400 360 L 800 440" stroke="#2a2a3a" stroke-width="2"/>
+
+		<!-- Left subgraph lines -->
+		<line x1="400" y1="360" x2="260" y2="200" stroke="#252535" stroke-width="2"/>
+		<line x1="400" y1="360" x2="180" y2="340" stroke="#252535" stroke-width="2"/>
+		<line x1="400" y1="360" x2="320" y2="520" stroke="#252535" stroke-width="2"/>
+		<line x1="260" y1="200" x2="180" y2="340" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="260" y1="200" x2="280" y2="440" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="180" y1="340" x2="280" y2="440" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="320" y1="520" x2="280" y2="440" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="320" y1="520" x2="280" y2="480" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="280" y1="440" x2="400" y2="360" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="260" y1="200" x2="380" y2="180" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="180" y1="340" x2="140" y2="420" stroke="#1a1a25" stroke-width="2"/>
+
+		<!-- Right subgraph lines -->
+		<line x1="800" y1="440" x2="880" y2="600" stroke="#252535" stroke-width="2"/>
+		<line x1="920" y1="520" x2="800" y2="440" stroke="#252535" stroke-width="2"/>
+		<line x1="800" y1="440" x2="940" y2="280" stroke="#252535" stroke-width="2"/>
+		<line x1="800" y1="440" x2="1020" y2="360" stroke="#252535" stroke-width="2"/>
+		<line x1="940" y1="280" x2="1020" y2="360" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="940" y1="280" x2="920" y2="520" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="1020" y1="360" x2="920" y2="520" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="880" y1="600" x2="920" y2="520" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="940" y1="280" x2="820" y2="200" stroke="#1a1a25" stroke-width="2"/>
+		<line x1="880" y1="600" x2="1060" y2="620" stroke="#1a1a25" stroke-width="2"/>
+
+		<!-- === ALL NODES (middle layer) === -->
+		<!-- Left secondary nodes -->
+		<circle cx="260" cy="200" r="8" fill="#2a2a3a"/>
+		<circle cx="180" cy="340" r="7" fill="#2a2a3a"/>
+		<circle cx="320" cy="520" r="8" fill="#2a2a3a"/>
+		<circle cx="280" cy="480" r="6" fill="#2a2a3a"/>
+		<circle cx="280" cy="440" r="7" fill="#2a2a3a"/>
+		<circle cx="380" cy="180" r="5" fill="#252535"/>
+		<circle cx="140" cy="420" r="5" fill="#252535"/>
+
+		<!-- Right secondary nodes -->
+		<circle cx="940" cy="280" r="8" fill="#2a2a3a"/>
+		<circle cx="1020" cy="360" r="7" fill="#2a2a3a"/>
+		<circle cx="880" cy="600" r="8" fill="#2a2a3a"/>
+		<circle cx="920" cy="520" r="7" fill="#2a2a3a"/>
+		<circle cx="820" cy="200" r="5" fill="#252535"/>
+		<circle cx="1060" cy="620" r="5" fill="#252535"/>
+
+		<!-- Primary nodes (gateways) -->
+		<circle cx="400" cy="360" r="14" fill="#3a3a4a" filter="url(#glow)"/>
+		<circle cx="800" cy="440" r="14" fill="#3a3a4a" filter="url(#glow)"/>
+
+		<!-- === PARTICLES (top layer) === -->
+		<!-- Bridge particle -->
+		<circle r="5" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 400 360 L 800 440'); animation-duration: 4s; animation-delay: 0s;"/>
+
+		<!-- Left subgraph particles -->
+		<circle r="4" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 400 360 L 260 200 L 180 340 L 400 360'); animation-duration: 5s; animation-delay: 0.5s;"/>
+		<circle r="3" fill="#a855f7" filter="url(#glow)" class="particle" style="offset-path: path('M 260 200 L 380 180 L 260 200'); animation-duration: 6s; animation-delay: 1s;"/>
+		<circle r="4" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 400 360 L 320 520 L 280 440 L 400 360'); animation-duration: 6s; animation-delay: 1.5s;"/>
+		<circle r="3" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 180 340 L 140 420 L 180 340'); animation-duration: 4s; animation-delay: 2s;"/>
+
+		<!-- Right subgraph particles -->
+		<circle r="4" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 800 440 L 940 280 L 1020 360 L 800 440'); animation-duration: 5s; animation-delay: 0.3s;"/>
+		<circle r="3" fill="#a855f7" filter="url(#glow)" class="particle" style="offset-path: path('M 940 280 L 820 200 L 940 280'); animation-duration: 6s; animation-delay: 0.8s;"/>
+		<circle r="4" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 800 440 L 880 600 L 920 520 L 800 440'); animation-duration: 6s; animation-delay: 1.2s;"/>
+		<circle r="3" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 880 600 L 1060 620 L 880 600'); animation-duration: 4s; animation-delay: 1.8s;"/>
+
+		<!-- Cross-bridge particles -->
+		<circle r="3" fill="#a855f7" filter="url(#glow)" class="particle" style="offset-path: path('M 180 340 L 400 360 L 800 440 L 1020 360'); animation-duration: 20s; animation-delay: 3s;"/>
+
+		<!-- Cross-subgraph particles -->
+		<circle r="4" fill="#00d4ff" filter="url(#glow)" class="particle" style="offset-path: path('M 940 280 L 800 440 L 400 360 L 260 200 L 180 340 L 400 360'); animation-duration: 8s; animation-delay: 0s;"/>
+		<circle r="3" fill="#a855f7" filter="url(#glow)" class="particle" style="offset-path: path('M 320 520 L 400 360 L 800 440 L 940 280 L 1020 360 L 800 440'); animation-duration: 16s; animation-delay: 2s;"/>
+	</svg>
+</div>
