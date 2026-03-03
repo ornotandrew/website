@@ -17,18 +17,218 @@ const { Content } = await render(post);
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>{post.data.title}</title>
+		<title>{post.data.title} — Andrew van Rooyen</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+		<style>
+			:root { 
+				--bg: #fafafa;
+				--text: #1a1a1a;
+				--muted: #6b6b7a;
+				--accent: #8b5cf6;
+				--border: #e5e5e5;
+			}
+
+			* { box-sizing: border-box; }
+
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+				background: var(--bg);
+				color: var(--text);
+				margin: 0;
+				min-height: 100vh;
+				font-size: 18px;
+				line-height: 1.7;
+			}
+
+			main {
+				max-width: 650px;
+				margin: 0 auto;
+				padding: 5rem 2rem;
+			}
+
+			.kicker {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.8rem;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: var(--muted);
+				margin-bottom: 2rem;
+			}
+
+			.kicker a {
+				color: var(--muted);
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+
+			.kicker a:hover {
+				color: var(--accent);
+			}
+
+			h1 {
+				font-family: 'Spectral', serif;
+				font-size: 2.5rem;
+				font-weight: 600;
+				margin: 0 0 0.5rem;
+				letter-spacing: -0.02em;
+				line-height: 1.2;
+			}
+
+			subtitle {
+				display: block;
+				font-family: 'Spectral', serif;
+				font-size: 1.25rem;
+				color: var(--muted);
+				font-weight: 400;
+				margin-bottom: 1.5rem;
+			}
+
+			.meta {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.75rem;
+				color: var(--muted);
+				letter-spacing: 0.05em;
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 1px solid var(--border);
+			}
+
+			article {
+				color: var(--text);
+			}
+
+			article p {
+				margin-bottom: 1.5rem;
+			}
+
+			article p:first-of-type::first-letter {
+				font-family: 'Spectral', serif;
+				font-size: 3.5rem;
+				float: left;
+				line-height: 1;
+				padding-right: 0.5rem;
+				padding-top: 0.1rem;
+				color: var(--accent);
+				font-weight: 600;
+			}
+
+			article h2 {
+				font-family: 'Spectral', serif;
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin: 2.5rem 0 1rem;
+			}
+
+			article a {
+				color: var(--accent);
+				text-decoration: underline;
+				text-underline-offset: 3px;
+			}
+
+			article a:hover {
+				color: var(--text);
+			}
+
+			article code {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.85em;
+				background: rgba(0, 0, 0, 0.05);
+				padding: 0.15em 0.4em;
+				border-radius: 3px;
+			}
+
+			article pre {
+				background: #1a1a1a;
+				padding: 1.5rem;
+				border-radius: 8px;
+				overflow-x: auto;
+				margin: 2rem 0;
+			}
+
+			article pre code {
+				background: none;
+				padding: 0;
+				color: #e8e8ed;
+			}
+
+			article blockquote {
+				border-left: 3px solid var(--accent);
+				padding-left: 1.5rem;
+				margin: 2rem 0;
+				color: var(--muted);
+				font-style: italic;
+			}
+
+			article ul, article ol {
+				padding-left: 1.5rem;
+				margin-bottom: 1.5rem;
+			}
+
+			article li {
+				margin-bottom: 0.5rem;
+			}
+
+			article img {
+				max-width: 100%;
+				height: auto;
+				border-radius: 8px;
+				margin: 2rem 0;
+			}
+
+			footer {
+				margin-top: 4rem;
+				padding-top: 2rem;
+				border-top: 1px solid var(--border);
+			}
+
+			footer p {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.75rem;
+				color: var(--muted);
+				margin: 0 0 0.5rem;
+				letter-spacing: 0.05em;
+			}
+
+			footer a {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.7rem;
+				color: var(--muted);
+				text-decoration: none;
+				letter-spacing: 0.05em;
+				opacity: 0.6;
+				transition: opacity 0.2s;
+			}
+
+			footer a:hover {
+				opacity: 1;
+				color: var(--accent);
+			}
+		</style>
 	</head>
 	<body>
-		<h1>{post.data.title}</h1>
-		{post.data.subtitle && <p>{post.data.subtitle}</p>}
-		<time datetime={post.data.date.toISOString()}>
-			{post.data.date.toLocaleDateString('en-us', {
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric',
-			})}
-		</time>
-		<Content />
+		<main>
+			<div class="kicker"><a href="/blog/">← Blog</a></div>
+			
+			<h1>{post.data.title}</h1>
+			{post.data.subtitle && <subtitle>{post.data.subtitle}</subtitle>}
+			
+			<div class="meta">
+				{post.data.date.toLocaleDateString('en-us', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric',
+				})}
+			</div>
+
+			<article>
+				<Content />
+			</article>
+
+			<footer>
+				<p>— Andrew van Rooyen</p>
+				<a href="/blog/">← All posts</a>
+			</footer>
+		</main>
 	</body>
 </html>
