@@ -10,23 +10,193 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Blog</title>
+		<title>Blog — Andrew van Rooyen</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+		<style>
+			:root { 
+				--bg: #fafafa;
+				--text: #1a1a1a;
+				--muted: #6b6b7a;
+				--accent: #8b5cf6;
+				--border: #e5e5e5;
+				--hover-bg: #f0f0f0;
+			}
+
+			* { box-sizing: border-box; }
+
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+				background: var(--bg);
+				color: var(--text);
+				margin: 0;
+				min-height: 100vh;
+				font-size: 16px;
+				line-height: 1.6;
+			}
+
+			main {
+				max-width: 680px;
+				margin: 0 auto;
+				padding: 5rem 2rem;
+			}
+
+			header {
+				margin-bottom: 4rem;
+				padding-bottom: 2rem;
+				border-bottom: 1px solid var(--border);
+			}
+
+			.header-name {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				color: var(--muted);
+				margin-top: 0.75rem;
+			}
+
+			.kicker {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+				color: var(--muted);
+				margin-bottom: 1rem;
+			}
+
+			.kicker a {
+				color: var(--muted);
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+
+			.kicker a:hover {
+				color: var(--accent);
+			}
+
+			h1 {
+				font-family: 'Spectral', serif;
+				font-size: 2.75rem;
+				font-weight: 600;
+				margin: 0;
+				letter-spacing: -0.02em;
+				line-height: 1.15;
+			}
+
+			.post-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.post-list li {
+				margin-bottom: 0;
+			}
+
+			.post-list a {
+				display: flex;
+				align-items: baseline;
+				gap: 1.5rem;
+				padding: 1.25rem 1rem;
+				margin: 0 -1rem;
+				border-radius: 8px;
+				text-decoration: none;
+				color: var(--text);
+				transition: background 0.2s, transform 0.2s;
+			}
+
+			.post-list a:hover {
+				background: var(--hover-bg);
+				transform: translateX(4px);
+			}
+
+			.post-date {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.75rem;
+				color: var(--muted);
+				letter-spacing: 0.05em;
+				flex-shrink: 0;
+				width: 100px;
+			}
+
+			.post-title {
+				font-family: 'Spectral', serif;
+				font-size: 1.1rem;
+				font-weight: 500;
+			}
+
+			.post-list a:hover .post-title {
+				color: var(--accent);
+			}
+
+			.empty {
+				color: var(--muted);
+				font-style: italic;
+			}
+
+			footer {
+				margin-top: 4rem;
+				padding-top: 2rem;
+				border-top: 1px solid var(--border);
+			}
+
+			footer a {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.8rem;
+				color: var(--muted);
+				text-decoration: none;
+				letter-spacing: 0.05em;
+			}
+
+			footer p {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.75rem;
+				color: var(--muted);
+				margin: 0 0 0.5rem;
+				letter-spacing: 0.05em;
+			}
+
+			footer a {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 0.7rem;
+				color: var(--muted);
+				text-decoration: none;
+				letter-spacing: 0.05em;
+				opacity: 0.6;
+				transition: opacity 0.2s;
+			}
+
+			footer a:hover {
+				opacity: 1;
+				color: var(--accent);
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Blog</h1>
-		<ul>
-			{posts.map((post) => (
-				<li>
-					<a href={`/blog/${post.id}/`}>{post.data.title}</a>
-					<time datetime={post.data.date.toISOString()}>
-						{post.data.date.toLocaleDateString('en-us', {
-							year: 'numeric',
-							month: 'short',
-							day: 'numeric',
-						})}
-					</time>
-				</li>
-			))}
-		</ul>
+		<main>
+			<main>
+			<header>
+				<div class="kicker"><a href="/">← Home</a></div>
+				<h1>Blog</h1>
+				<div class="header-name">Andrew van Rooyen</div>
+			</header>
+
+			<ul class="post-list">
+				{posts.length > 0 ? (
+					posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>
+								<span class="post-date">{post.data.date.toISOString().split('T')[0]}</span>
+								<span class="post-title">{post.data.title}</span>
+							</a>
+						</li>
+					))
+				) : (
+					<li class="empty">No posts yet.</li>
+				)}
+			</ul>
+		</main>
 	</body>
 </html>
