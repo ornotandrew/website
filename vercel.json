@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/bookshelf", "destination": "https://ornotandrew-bookshelf.vercel.app" },
+    { "source": "/bookshelf/:path*", "destination": "https://ornotandrew-bookshelf.vercel.app/:path*" }
+  ]
+}
