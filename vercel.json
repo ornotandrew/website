@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/bookshelf", "destination": "https://ornotandrew-bookshelf.vercel.app/bookshelf" },
-    { "source": "/bookshelf/:path*", "destination": "https://ornotandrew-bookshelf.vercel.app/bookshelf/:path*" }
+    { "source": "/bookshelf", "destination": "https://ornotandrew-bookshelf.vercel.app" },
+    { "source": "/bookshelf/:path*", "destination": "https://ornotandrew-bookshelf.vercel.app/:path*" }
   ]
 }
