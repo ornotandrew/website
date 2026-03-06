@@ -20,7 +20,7 @@ const { Content } = await render(post);
 		<title>{post.data.title} — Andrew van Rooyen</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
-		<style>
+		<style is:global>
 			:root { 
 				--bg: #fafafa;
 				--text: #1a1a1a;
@@ -102,17 +102,6 @@ const { Content } = await render(post);
 				margin-bottom: 1.5rem;
 			}
 
-			article p:first-of-type::first-letter {
-				font-family: 'Spectral', serif;
-				font-size: 3.5rem;
-				float: left;
-				line-height: 1;
-				padding-right: 0.5rem;
-				padding-top: 0.1rem;
-				color: var(--accent);
-				font-weight: 600;
-			}
-
 			article h2 {
 				font-family: 'Spectral', serif;
 				font-size: 1.5rem;
@@ -149,8 +138,11 @@ const { Content } = await render(post);
 			article pre code {
 				background: none;
 				padding: 0;
-				color: #e8e8ed;
 			}
+
+			/* Shiki syntax highlighting */
+			article pre code .line { display: block; }
+			article pre code .highlighted { background: rgba(255,255,255,0.1); }
 
 			article blockquote {
 				border-left: 3px solid var(--accent);
@@ -169,11 +161,17 @@ const { Content } = await render(post);
 				margin-bottom: 0.5rem;
 			}
 
-			article img {
-				max-width: 100%;
+			main img, main iframe {
+				max-width: 100% !important;
+				width: 100%;
 				height: auto;
-				border-radius: 8px;
+				border-radius: 16px;
 				margin: 2rem 0;
+				display: block;
+			}
+
+			main iframe {
+				aspect-ratio: 16 / 9;
 			}
 
 			footer {
